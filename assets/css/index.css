@@ -1,0 +1,75 @@
+/*navigation */
+.annotation-pagination {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+.annotation-pagination .prev-arrow {
+  rotate: calc(180deg);
+}
+
+.annotation-pagination .pagination-icon:hover svg path {
+  stroke: #000000;
+}
+
+.annotation-pagination .pagination-icon svg {
+  width: 40px;
+}
+
+.annotation-pagination[data-page=0] .prev-icon {
+  opacity: 0.2;
+}
+
+.annotation-pagination.last .next-icon {
+  opacity: 0.2;
+}
+
+/* one column template */
+
+.annotator-field-section.one-colum-template {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  position: relative;
+}
+
+.annotator-field-section.one-colum-template .annotator-field {
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 100%;
+}
+
+.annotator-field-section.one-colum-template .annotator-field .annotator__viewport {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.annotator-field-section.one-colum-template .annotator-field .annotator__viewport .annotator__canvas {
+  display: inline-flex;
+  width: 100%;
+  transform-origin: top left;
+  will-change: transform;
+  transition-duration: 800ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+@media screen and (min-width: 768px) {
+  .annotator-field-section.one-colum-template {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .annotator-field-section.one-colum-template {
+    height: 90vh;
+    max-height: 90vh;
+  }
+}

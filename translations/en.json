@@ -1,0 +1,16 @@
+{
+  "libis.annotator.template": "Template",
+  "libis.annotator.annotator": "Annotator",
+  "libis.annotator.image": "Image",
+  "libis.annotator.intro": "Intro",
+  "libis.annotator.title": "Title",
+  "libis.annotator.text": "Text",
+  "libis.annotator.empty.text.image": "Select an image",
+  "libis.annotator.edit": "Edit",
+  "libis.annotator.delete": "Delete",
+  "libis.annotator.select": "Select",
+  "libis.annotator.cancel": "Cancel",
+  "libis.annotator.confirm": "Confirm",
+  "libis.annotator.template.twocolumn": "Two columns",
+  "libis.annotator.template.onecolumn": "One column"
+}

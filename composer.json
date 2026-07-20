@@ -1,0 +1,17 @@
+{
+	"name": "libis/annotator",
+	"description": "Annotator block and field for a LIBIS kirby website",
+	"license": "MIT",
+	"type": "kirby-plugin",
+	"version": "5.0.0",
+	"authors": [
+		{
+			"name": "Libis",
+			"email": "info@libis.be"
+		}
+	],
+	"require": {
+		"getkirby/composer-installer": "^5.0",
+		"getkirby/cms": "^5.0.0"
+	}
+}

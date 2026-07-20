@@ -1,0 +1,64 @@
+name: libis.annotator.annotator
+icon: images
+wysiwyg: true
+preview: fields
+
+tabs:
+  content:
+    label: libis.basic.blocks.content
+    fields:
+      annotator:
+        type: annotator
+        label: libis.annotator.annotator
+        infoTemplate: imageTitleText
+        query: page('media-folder').children.files
+        limit: 8
+        template:
+          type: select
+          label: libis.annotator.template
+          options: 
+            twocolumn: libis.annotator.template.twocolumn
+            onecolumn: libis.annotator.template.onecolumn
+        fields:
+          title:
+            label: libis.annotator.title
+            type: text
+            mobile: true
+          text:
+            label: libis.annotator.text
+            type: textarea
+          image:
+            label: libis.annotator.image
+            type: annotatorFile
+            query: page('media-folder').children.files
+            limit: 8
+  advanced:
+    label: libis.basic.blocks.advanced
+    fields:
+      class:
+        label: Class
+        type: text
+        width: 1/2
+        before: .
+        translated: false
+      ids:
+        label: Id
+        type: text
+        width: 1/2
+        before: #
+        translated: false
+      marginHeading:
+        type: headline
+        label: Margin
+      margintop:
+        default: 0
+        label: Margin top
+        type: number
+        after: px
+        width: 1/2
+      marginbottom:
+        default: 0
+        label: Margin bottom
+        type: number
+        after: px
+        width: 1/2

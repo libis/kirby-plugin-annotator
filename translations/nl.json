@@ -1,0 +1,16 @@
+{
+  "libis.annotator.template": "Template",
+  "libis.annotator.annotator": "Annotator",
+  "libis.annotator.image": "Afbeelding",
+  "libis.annotator.intro": "Intro",
+  "libis.annotator.title": "Titel",
+  "libis.annotator.text": "Tekst",
+  "libis.annotator.empty.text.image": "Selecteer een afbeelding",
+  "libis.annotator.edit": "Pas aan",
+  "libis.annotator.delete": "Verwijder",
+  "libis.annotator.select": "Selecteren",
+  "libis.annotator.cancel": "Annuleer",
+  "libis.annotator.confirm": "Bevestig",
+  "libis.annotator.template.twocolumn": "Twee kolommen",
+  "libis.annotator.template.onecolumn": "Een kolom"
+}
