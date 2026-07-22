@@ -87,6 +87,10 @@
   align-items: center;
 }
 
+.annotator-field-section.one-colum-template .annotator-open-info.open {
+  display: flex;
+}
+
 .annotator-field-section.one-colum-template .annotator-open-info .annotator-open-info-icon svg {
   width: 40px;
 }
@@ -105,6 +109,10 @@
   gap: 20px;
   justify-content: end;
   width: 100%;
+}
+
+.annotator-field-section.one-colum-template .annotator-info-section.close {
+  display: hidden;
 }
 
 .annotator-field-section.one-colum-template .annotator-info-section .annotator-close-info {

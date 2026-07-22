@@ -328,8 +328,8 @@ function closeInfo(closeIcon, annotator) {
   const openIcon = annotator.querySelector('.annotator-open-info');
 
   closeIcon.addEventListener("click", () => {
-    openIcon.classList.remove('hidden');
-    infoSection.classList.add('hidden');
+    openIcon.classList.add('open');
+    infoSection.classList.add('close');
   });
 }
 
@@ -338,8 +338,8 @@ function openInfo(annotator, openIcon) {
   const closeIcon = annotator.querySelector('.annotator-close-info');
 
   openIcon.addEventListener("click", () => {
-    openIcon.classList.add('hidden');
-    infoSection.classList.remove('hidden');
+    openIcon.classList.remove('open');
+    infoSection.classList.remove('close');
   });
 }
 
