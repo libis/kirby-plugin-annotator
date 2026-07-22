@@ -42,7 +42,7 @@
   height: 100%;
 }
 
-.annotator-field-section.one-colum-template .annotator-field .annotator__viewport {
+.annotator-field-section.one-colum-template .annotator__viewport {
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -52,8 +52,8 @@
   align-items: center;
 }
 
-.annotator-field-section.one-colum-template .annotator-field .annotator__viewport .annotator__canvas {
-  display: inline-flex;
+.annotator-field-section.one-colum-template .annotator__canvas {
+  display: inline-block;
   width: 100%;
   transform-origin: top left;
   will-change: transform;
@@ -61,9 +61,241 @@
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
+.annotator-field-section.one-colum-template .annotator__canvas.w-big {
+  height: 100%;
+}
+
+.annotator-field-section.one-colum-template .annotator__canvas img {
+  width: 100%;
+  object-fit: contain;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+  display: block;
+}
+
+.annotator-field-section.one-colum-template .annotator-open-info {
+  display: hidden;
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: #756df0;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.annotator-field-section.one-colum-template .annotator-open-info .annotator-open-info-icon svg {
+  width: 40px;
+}
+
+.annotator-field-section.one-colum-template .annotator-open-info .annotator-open-info-icon path {
+  fill: #000000;
+}
+
+.annotator-field-section.one-colum-template .annotator-open-info .annotator-open-info-icon circle {
+  stroke: #000000;
+}
+
+.annotator-field-section.one-colum-template .annotator-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: end;
+  width: 100%;
+}
+
+.annotator-field-section.one-colum-template .annotator-info-section .annotator-close-info {
+  cursor: pointer;
+  display: hidden;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
+.annotator-field-section.one-colum-template .annotator-info-section .annotator-close-info svg {
+  width: 30px;
+}
+
+.annotator-field-section.one-colum-template .annotator-info-section .annotator-close-info path {
+  stroke: #000000;
+  stroke-width: 3px;
+}
+
+/* two column template */
+.annotator-field-section.two-colum-template {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+.annotator-field-section.two-colum-template .annotator-field {
+  position: relative;
+}
+
+.annotator-field-section.two-colum-template .annotator-field.w-big {
+  width: 100%;
+}
+
+.annotator-field-section.two-colum-template .annotator-field.h-big {
+  width: 100%;
+}
+
+.annotator-field-section.two-colum-template .annotator__viewport {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.annotator-field-section.two-colum-template .annotator__canvas {
+  display: inline-block;
+  width: 100%;
+  transform-origin: top left;
+  will-change: transform;
+  transition-duration: 800ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.annotator-field-section.two-colum-template .annotator__canvas img {
+  width: 100%;
+  object-fit: contain;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+  display: block;
+}
+
+.annotator-field-section.two-colum-template .annotator-info-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  margin-bottom: 20px;
+  gap: 20px;
+  width: 100%;
+}
+
+/* annotator pointer */
+.annotator-field-section .annotator-pointer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #000000;
+  position: absolute;
+  border-radius: 60px;
+  cursor: pointer;
+}
+
+.annotator-field-section .annotator-pointer.active {
+  border: 2px solid #756df0;
+}
+
+.annotator-field-section .annotator-pointer .annotator-mid-pointer {
+  height: 8px;
+  width: 8px;
+  background-color: #000000;
+  border-radius: 30px;
+}
+
+.annotator-field-section .annotator-pointer.active .annotator-mid-pointer {
+  height: 12px;
+  width: 12px;
+  background-color: #756df0;
+}
+
+/* image title text template */
+.annotator-title-image-textblock {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.annotator-title-image-textblock .image-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.annotator-title-image-textblock .image-section .image-wrapper {
+  height: 90px;
+}
+
+.annotator-title-image-textblock .image-section .image-wrapper picture, .annotator-title-image-textblock .image-section .image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.annotator-title-image-textblock .text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* title text template */
+.annotator-title-textblock {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* responsive */
+
 @media screen and (min-width: 768px) {
   .annotator-field-section.one-colum-template {
     display: block;
+  }
+
+  .annotator-field-section.one-colum-template .annotator__canvas.h-big {
+    width: fit-content;
+  }
+
+  .annotator-field-section.one-colum-template .annotator__canvas.picture-h-big {
+    display: block;
+    width: fit-content;
+  }
+
+  .annotator-field-section.one-colum-template .annotator__canvas img.img-h-big {
+    width: auto;
+    max-height: 90vh;
+  }
+
+  .annotator-field-section.one-colum-template .annotator-open-info {
+    bottom: 115px;
+    right: 0;
+  }
+
+  .annotator-field-section.one-colum-template .annotator-info-section {
+    max-width: 50%;
+    padding: 45px 30px;
+    position: absolute;
+    bottom: 45px;
+    right: -30px;
+    background-color: #756df0;
+    color: #000000;
+  }
+
+  .annotator-field-section.one-colum-template .annotator-info-section path {
+    stroke: #000000;
+  }
+
+  .annotator-field-section.one-colum-template .annotator-info-section .annotator-close-info {
+    display: block;
+  }
+
+  .annotator-field-section.two-colum-template .annotator-field.h-big {
+    width: 25%;
+  }
+
+  .annotator-field-section.two-colum-template .annotator-info-section.info-h-big {
+    width: 50%;
   }
 }
 
@@ -71,5 +303,28 @@
   .annotator-field-section.one-colum-template {
     height: 90vh;
     max-height: 90vh;
+  }
+
+  .annotator-field-section.one-colum-template .annotator-info-section {
+    max-width: 40%;
+    padding: 45px 60px;
+    right: -60px;
+  }
+
+  .annotator-field-section.one-colum-template .annotator-info-section .annotator-close-info {
+    right: 60px;
+    top: 35px;
+  }
+
+  .annotator-field-section.two-colum-template .annotator-field {
+    max-width: 50%;
+  }
+
+  .annotator-field-section.two-colum-template .annotator__viewport {
+    max-height: 80dvh;
+  }
+
+  .annotator-field-section.two-colum-template .annotator-info-section {
+    width: 33%;
   }
 }
