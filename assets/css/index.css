@@ -335,4 +335,9 @@
   .annotator-field-section.two-colum-template .annotator-info-section {
     width: 33%;
   }
+
+  .annotator-field-section.one-colum-template .annotator__canvas.picture-w-big {
+    width: auto;
+    height: auto;
+  }
 }
