@@ -73,6 +73,7 @@ annotator:
       limit: 8
 ```
 Als je extra layout (templates) opties wilt voorzien kan dit bij template. Als je extra velden aan een punt wilt toevoegen kan dit bij fields.
+
 <br/>
 
 ## Customalisatie
