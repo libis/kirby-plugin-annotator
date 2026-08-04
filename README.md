@@ -35,6 +35,8 @@ RUN wget --no-verbose "https://github.com/libis/kirby-plugin-annotator/archive/$
 1. Download of clone deze repository.
 2. Plaats de plugin in de map:
 
+<br/>
+
 ### Stijl & functionaliteiten
 #### Stijl
 Deze plugin komt met een standaard styling deze kan je aanpassen door de classes in je iegen css op te roepen en aan te passen. Gebruik je tailwind voeg deze file dan niet toe en kopieer alle snippet files naar je project in `site/snippets` en voeg de classes toe.
