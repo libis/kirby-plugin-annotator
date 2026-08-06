@@ -18,7 +18,7 @@ export default {
     markers: Array,
   },
   computed: {
-    // add 3 extra columns on top of the asked fields
+    // add 3 extra columns on top of the asked fields for storing the place of the point and set a zoom factor if needed
     tableColumns() {
       if (!this.fields) return [];
 

@@ -94,6 +94,7 @@ export default {
     }
   },
   computed: {
+    //check if the templated is selected otherwise the front-end will not work
     templateIsSelect() {
       return this.template && typeof this.template === 'object' && this.template.type === 'select'
     },
@@ -138,6 +139,7 @@ export default {
         return [];
       }
     },
+    // if a point is updated in the image or the table this function is called en will update the markers and set a really small delay before saving the data
     onMarkersUpdate(newMarkers) {
       this.markers = newMarkers;
 
@@ -181,6 +183,7 @@ export default {
         }
       });
 
+      // always give back an object so the data can bes saved as an object
       const savedObject = {
         template: this.currentTemplate,
         infoTemplate: this.infoTemplate,
@@ -191,6 +194,7 @@ export default {
 
       this.$emit("input", savedObject);
     },
+    //if a point is created or saved without data in a column the default value of the valuetype will be saved
     defaultOfValues(value) { 
       switch (value) {
         case "text":
@@ -211,6 +215,7 @@ export default {
           return null;
       }
     },
+    //update the template data if they select a new option
     onTemplateSelect(value) {
       this.selectedTemplate = value;
       this.save();

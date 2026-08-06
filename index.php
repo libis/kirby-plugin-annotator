@@ -29,6 +29,7 @@ Kirby::plugin('libis/annotator', [
 		return $translations;
 	})(),
 
+	//search an image based of the given uuid if found sent back all teh information if aksed multiple uuids search all of them
 	'routes' => [
 		[
 			'pattern' => 'get/images/uuid',
@@ -69,6 +70,7 @@ Kirby::plugin('libis/annotator', [
 				}
 			}
 		],
+		// get images of the aksed page with the asked query
 		[
 			'pattern' => '/annotator/files',
 			'method' => 'GET',
@@ -119,6 +121,7 @@ Kirby::plugin('libis/annotator', [
 				];
 			}
 		],
+		// in the front-end the data of all the annotator points will be asked async and this function will get the correct data and send it back as an array
 		[
 			'pattern' => '/content/annotator/data/(:all)/(:all)/(:all)',
       'method' => 'GET',

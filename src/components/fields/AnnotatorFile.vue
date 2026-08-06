@@ -62,7 +62,7 @@ export default {
     }
   },
   computed: {
-    // make images that are selected more usefull to use in a collection
+    // make images that are selected more usefull to use it in a collection to collect more data of the image itself
     collectionItems() {
       return this.resolvedFiles.map(file => ({
         image: file.panel?.image || file.url,
@@ -72,9 +72,11 @@ export default {
       }));
     },
     selectedProxy: {
+      // if we need the active image parse the data to an array with a function
       get() {
         return this.parseKirbyYamlToArray(this.value);
       },
+      // put in a way kirby can read the data for saving
       set(next) {
         const safe = JSON.parse(JSON.stringify(next ?? []));
         this.$emit('input', safe);
@@ -161,6 +163,7 @@ export default {
         formData.append('uuids[]', uuid);
       });
     
+      //get image data from external api endpoint it wills earch if the image excist
       let response = await fetch('/get/images/uuid', {
         method: 'POST',
         body: formData

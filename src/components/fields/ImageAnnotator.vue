@@ -69,6 +69,7 @@ export default {
       this.$emit("update:markers", updated);
 
     }, 
+    //take a look where the image is positioned and calculate from it boundaries where the markers needs to be
     calculateMarkerposition(e) {
       const rect = this.$refs.imageContainer.getBoundingClientRect();
       let x = ((e.clientX - rect.left) / rect.width) * 100;

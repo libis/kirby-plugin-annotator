@@ -75,6 +75,7 @@ export default {
     }
   },
   watch: {
+    // if people search then fetch the new set of images based on teh search put a timeout that the function is not called .... times
     searchValue(newValue) {
       clearTimeout(this.searchTimeout);
       this.searchTimeout = setTimeout(() => {
@@ -83,6 +84,7 @@ export default {
     }
   },
   methods: {
+    // check if file is selected to show it is selected
     isSelected(id) {
       return this.selected.some(item => item.id === id);
     },
@@ -99,7 +101,7 @@ export default {
     confirm() {
       this.$emit("confirm", this.selected.map(item => item.id));
     },
-    // get all the files if quey excist use it otherwise takes page images
+    // get all the files if query excist in a cache, use it otherwise call api for getting the images of the needed query
     async fetchItems(q = "", page = 1) {
       if (this.cachedPages[page] && this.cachedSearchItem == q) {
         this.items = this.cachedPages[page];
@@ -125,6 +127,7 @@ export default {
         id: item.uuid,
       }));
 
+      //when the image is asked via api, cache the data
       this.cachedPages[page] = mapped;
 
       this.items = mapped;
@@ -135,6 +138,7 @@ export default {
       this.cacheNextItems(page);
       this.cachePreviousItems(page);
     },
+    // to not wait every time someone ask the next page also get the next page and cache it already
     async cacheNextItems(page) {
       const nextPage = page + 1;
       if (nextPage <= this.pagination.pages && !this.cachedPages[nextPage]) {
@@ -150,6 +154,7 @@ export default {
           });
       }
     },
+    // to not wait every time someone ask the previous page also get the previous page and cache it already
     async cachePreviousItems(page) {
       const previousPage = page - 1;
       if (previousPage > 0 && !this.cachedPages[previousPage]) {
