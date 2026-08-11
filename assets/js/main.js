@@ -1,4 +1,4 @@
-import { annotatorBlock } from '/annotator.js';
+import { annotatorBlock } from '../js/annotator';
 
 document.addEventListener('DOMContentLoaded', () => {
   const annotators = document.querySelectorAll('.annotator-field-section-wrapper');
