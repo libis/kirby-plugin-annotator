@@ -21,6 +21,6 @@
   <?php endif; ?>
   <div class="annotator-title-image-textblock__text-wrapper text-wrapper">
     <h3 class="text-wrapper__annotator-title annotator-title h3"><?= $data->title() ?></h3>
-    <p class="text-wrapper__annotator-text annotator-text body-text"><?= $data->text() ?></p>
+    <p class="text-wrapper__annotator-text annotator-text body-text"><?= $data->text()->kirbytextinline() ?></p>
   </div>
 </div>
