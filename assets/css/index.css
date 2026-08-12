@@ -52,6 +52,11 @@
   align-items: center;
 }
 
+.annotator-field-section.one-colum-template .annotator__viewport:has(.w-big) {
+  overflow: unset;
+  height: auto;
+}
+
 .annotator-field-section.one-colum-template .annotator__canvas {
   display: inline-block;
   width: 100%;
