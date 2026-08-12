@@ -80,6 +80,7 @@ export default {
   },
   data() {
     return {
+      syncing: false,
       markers: this.parseValue(this.value),
       imageId: this.value?.image ?? [],
       imageUrl: null,
@@ -107,13 +108,26 @@ export default {
   },  
   watch: {
     // get all the values that are in the field before showing this field and put this values inside markers
-    value(val) {
-      this.markers = this.parseValue(val);
+    value: {
+      immediate: true,
+      deep: true,
+      handler(val) {
+        this.syncing = true;
+        this.markers = this.parseValue(val);
+        this.introData = { ...(val?.introData ?? {}) };
+        this.imageId = val?.image ?? [];
+        this.selectedTemplate = val?.template ?? null;
+        this.$nextTick(() => {
+          this.syncing = false;
+        });
+      }
     },
     // watch changes inside the intro data and save the block if so
     introData: {
       handler() {
-        this.save();
+        if (!this.syncing) {
+          this.save();
+        }
       },
       deep: true
     }
