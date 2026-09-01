@@ -3,15 +3,15 @@ const annotatorCache = {
 };
 
 // look if the record is in the variable cache
-function getCache(pageId, annotatorId, pointId) {
-  return annotatorCache?.[pageId]?.[annotatorId]?.[pointId];
+function getCache(pageId, annotatorId, pointId, language) {
+  return annotatorCache?.[pageId]?.[annotatorId]?.[language]?.[pointId];
 }
 
 // put records in to the variable cache
-function setCache(pageId, annotatorId, data) {
+function setCache(pageId, annotatorId, data, language) {
   if (!annotatorCache[pageId]) annotatorCache[pageId] = {};
 
-  annotatorCache[pageId][annotatorId] = data;
+  annotatorCache[pageId][annotatorId][language] = data;
 }
 
 //main functions of the block
@@ -168,12 +168,13 @@ function setActivePoint(pointId, annotationPoints) {
 
 //get data of a point
 async function getNewData(pointId, annotatorId, annotatorIdType, pageId) {
+  const language = document.documentElement.lang;
+
   // look if the data is in the cache if so use this one
-  const cached = getCache(pageId, annotatorId, pointId);
+  const cached = getCache(pageId, annotatorId, pointId, language);
   if (cached) return cached;
 
   // if not in the cache get the data from the backend and put it in the cache
-  const language = document.documentElement.lang;
   const url = `/content/annotator/data/${annotatorId}/${annotatorIdType}/${language}`;
   let returnData = "";
 
@@ -188,8 +189,8 @@ async function getNewData(pointId, annotatorId, annotatorIdType, pageId) {
     }
 
     const data = await response.json();
-    setCache(pageId, annotatorId, data.data);
-    return getCache(pageId, annotatorId, pointId);
+    setCache(pageId, annotatorId, data.data, language);
+    return getCache(pageId, annotatorId, pointId, language);
   }
   catch (error) {
     return null;

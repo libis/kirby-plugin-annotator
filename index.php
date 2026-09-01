@@ -127,6 +127,9 @@ Kirby::plugin('libis/annotator', [
       'method' => 'GET',
       'action' => function ($annotatorId, $annotatorType, $lang) {
 				$pageId = kirby()->session()->get('annotator.page');
+
+				kirby()->setCurrentLanguage($lang);
+
 				$page = page($pageId);
 
 				if($page) {
