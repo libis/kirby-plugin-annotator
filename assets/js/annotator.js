@@ -15,7 +15,6 @@ function setCache(pageId, annotatorId, data, language) {
   }
 
   annotatorCache[pageId][annotatorId][language] = data;
-  console.log(annotatorCache);
 }
 
 //main functions of the block
@@ -174,16 +173,12 @@ function setActivePoint(pointId, annotationPoints) {
 async function getNewData(pointId, annotatorId, annotatorIdType, pageId) {
   const language = document.documentElement.lang;
 
-  console.log(language);
-
   // look if the data is in the cache if so use this one
   const cached = getCache(pageId, annotatorId, pointId, language);
   if (cached) return cached;
 
   // if not in the cache get the data from the backend and put it in the cache
   const url = `/content/annotator/data/${annotatorId}/${annotatorIdType}/${language}`;
-
-  console.log(url);
 
   try {
     const response = await fetch(url, {
@@ -196,7 +191,6 @@ async function getNewData(pointId, annotatorId, annotatorIdType, pageId) {
     }
 
     const data = await response.json();
-    console.log(data);
     setCache(pageId, annotatorId, data.data, language);
     return getCache(pageId, annotatorId, pointId, language);
   }
