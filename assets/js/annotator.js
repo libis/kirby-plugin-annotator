@@ -12,6 +12,7 @@ function setCache(pageId, annotatorId, data, language) {
   if (!annotatorCache[pageId]) annotatorCache[pageId] = {};
 
   annotatorCache[pageId][annotatorId][language] = data;
+  console.log(annotatorCache);
 }
 
 //main functions of the block
