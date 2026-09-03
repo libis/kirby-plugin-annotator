@@ -10,6 +10,9 @@ function getCache(pageId, annotatorId, pointId, language) {
 // put records in to the variable cache
 function setCache(pageId, annotatorId, data, language) {
   if (!annotatorCache[pageId]) annotatorCache[pageId] = {};
+  if (!annotatorCache[pageId][annotatorId]) {
+    annotatorCache[pageId][annotatorId] = {};
+  }
 
   annotatorCache[pageId][annotatorId][language] = data;
   console.log(annotatorCache);
